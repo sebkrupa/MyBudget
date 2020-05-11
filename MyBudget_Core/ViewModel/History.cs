@@ -15,11 +15,11 @@ namespace MyBudget_Core.ViewModel
             UC = new View.History();
             base.cbxDates = UC.cbxMonth;
             base.control = UC.dgridHistory;
+            base.SetComboBox();
         }
         internal override UserControl GetUC()
         {
             if (!showSubCategory) UC.dgridSubCategory.Visibility = System.Windows.Visibility.Collapsed;
-            base.SetComboBox();
             return UC;
         }
     }

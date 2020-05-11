@@ -26,15 +26,15 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <ListView x:Name="listMonthly" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Grid.ColumnSpan="2" Margin="15"/>
+        <ListView x:Name="listMonthly" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Grid.ColumnSpan="2" Margin="15" HorizontalContentAlignment="Center"/>
 
         <TextBlock Text="Miesiąc"/>
-        <ComboBox Grid.Row="0" Grid.Column="3" VerticalAlignment="Center" Margin="15"/>
+        <ComboBox x:Name="cbxDates" Grid.Row="0" Grid.Column="3" VerticalAlignment="Center" Margin="15"/>
         <StackPanel Grid.Row="1" Grid.Column="2" VerticalAlignment="Center">
             <TextBlock Text="Do podziału na (osoby):" Margin="15"/>
             <TextBox x:Name="txtDivide" Text="3" HorizontalContentAlignment="Center" Margin="15" HorizontalAlignment="Right" Width="50"/>
         </StackPanel>
-        <TextBlock Grid.Column="3" FontSize="30" Grid.Row="1" HorizontalAlignment="Center" Text="123"/>
+        <TextBlock x:Name="txtDivideSum" Grid.Column="3" FontSize="30" Grid.Row="1" HorizontalAlignment="Center" Text="123"/>
 
     </Grid>
 </UserControl>

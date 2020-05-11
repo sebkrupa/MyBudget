@@ -24,7 +24,10 @@ namespace MyBudget_Core.Interfaces
         /// after construct, you should assign control and cbxDates
         /// </summary>
         /// <param name="_historyList"></param>
-        internal StandardUC(IEnumerable<MyBudgetAPI.Interfaces.IHistory> _historyList) => historyList = _historyList;
+        internal StandardUC(IEnumerable<MyBudgetAPI.Interfaces.IHistory> _historyList)
+        {
+            historyList = _historyList;
+        }
 
 
         /// <summary>

@@ -31,6 +31,7 @@ namespace MyBudget_Core
         {
             tabExpenses.Content = new ViewModel.History(new MyBudgetAPI.Read.Expenses().GetAll()).GetUC();
             tabIncome.Content = new ViewModel.History(new MyBudgetAPI.Read.Income().GetAll()).GetUC();
+            tabMonthly.Content = new ViewModel.Monthly().GetUC();
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e) => RefreshData();
