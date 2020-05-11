@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="MyBudget_Core.View.Expenses"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MyBudget_Core.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Miesiąc" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" Margin="15" VerticalAlignment="Center"/>
+        <ComboBox x:Name="cbxMonth" Grid.Row="0" Grid.Column="2" Margin="15" VerticalAlignment="Center"/>
+        <DataGrid x:Name="dgridExpenses" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2" Margin="15" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding id}"/>
+                <DataGridTextColumn Header="Kategoria" Binding="{Binding CategoryName}"/>
+                <DataGridTextColumn Header="Podkategoria" Binding="{Binding SubCategoryName}"/>
+                <DataGridTextColumn Header="Komentarz" Binding="{Binding comment}"/>
+                <DataGridTextColumn Header="Kwota" Binding="{Binding value}"/>
+                <DataGridTextColumn Header="Data" Binding="{Binding ShortDate}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

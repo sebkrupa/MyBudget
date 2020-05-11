@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyBudget_Core", "MyBudget_Core\MyBudget_Core.csproj", "{B07322B7-4CAB-4D50-8506-958EEA098647}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyBudgetAPI", "MyBudgetAPI\MyBudgetAPI.csproj", "{9F8A79EA-1899-476A-9815-111AFC51DE02}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B07322B7-4CAB-4D50-8506-958EEA098647}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B07322B7-4CAB-4D50-8506-958EEA098647}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B07322B7-4CAB-4D50-8506-958EEA098647}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B07322B7-4CAB-4D50-8506-958EEA098647}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F8A79EA-1899-476A-9815-111AFC51DE02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F8A79EA-1899-476A-9815-111AFC51DE02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F8A79EA-1899-476A-9815-111AFC51DE02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F8A79EA-1899-476A-9815-111AFC51DE02}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5FB2C741-4192-419C-B650-B5929A540D96}
+	EndGlobalSection
+EndGlobal
