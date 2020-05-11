@@ -10,8 +10,4 @@
     <ProjectReference Include="..\MyBudgetAPI\MyBudgetAPI.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Model\" />
-  </ItemGroup>
-
 </Project>

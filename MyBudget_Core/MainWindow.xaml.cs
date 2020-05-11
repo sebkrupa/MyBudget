@@ -23,7 +23,16 @@ namespace MyBudget_Core
         public MainWindow()
         {
             InitializeComponent();
-            mainlist.ItemsSource = MyBudgetAPI.Read.Income.GetAllIncome();
+            Model.Windows.MainWindow = this;
+            RefreshData();
         }
+
+        private void RefreshData()
+        {
+            tabExpenses.Content = new ViewModel.History(new MyBudgetAPI.Read.Expenses().GetAll()).GetUC();
+            tabIncome.Content = new ViewModel.History(new MyBudgetAPI.Read.Income().GetAll()).GetUC();
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e) => RefreshData();
     }
 }

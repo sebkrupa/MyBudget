@@ -7,23 +7,9 @@ using System.Threading.Tasks;
 
 namespace MyBudgetAPI.Read
 {
-    public static class Expenses
+    public class Expenses : Interfaces.Query.Read<Model.Expenses>
     {
-        public static IEnumerable<Model.Expenses> AllExpenses()
-        {
-            using (var db = DB.DBContext())
-            {
-                return db.Query<Model.Expenses>("select * from Expenses", new DynamicParameters());
-            }
-        }
-        public static Model.Expenses GetExpenses(int id)
-        {
-            using (var db = DB.DBContext())
-            {
-                return db.Query<Model.Expenses>($"select * from Expenses where id='{id}'", new DynamicParameters()).FirstOrDefault();
-            }
-        }
-
-        public static IEnumerable<Model.Expenses> GetMonthlyExpenses(int month) => AllExpenses().Where(x => x.Date.Value.Month == month);
+        public Expenses() : base() { }
+        public IEnumerable<Model.Expenses> GetMonthlyExpenses(int month) => GetAll().Where(x => x.Date.Month == month);
     }
 }

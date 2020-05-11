@@ -5,8 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyBudget_Core"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Budżet" Height="450" Width="800">
+    
     <Grid>
-        <ListView x:Name="mainlist" DisplayMemberPath="value"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0" Height="20" VerticalAlignment="Top">
+            <MenuItem Header="Odśwież dane" Click="MenuItem_Click"/>
+
+        </Menu>
+        <TabControl Margin="0,20,0,0">
+            <TabItem x:Name="tabMonthly" Header="Miesięczne"/>
+            <TabItem x:Name="tabExpenses" Header="Wydatki"/>
+            <TabItem x:Name="tabIncome" Header="Przychody"/>
+        </TabControl>
     </Grid>
 </Window>

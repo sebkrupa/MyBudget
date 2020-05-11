@@ -4,10 +4,8 @@ using System.Text;
 
 namespace MyBudget_Core.ViewModel
 {
-    public static class Expenses
+    internal class Monthly
     {
-        public static 
+
     }
-
-
 }

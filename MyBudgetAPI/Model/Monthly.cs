@@ -19,6 +19,6 @@ namespace MyBudgetAPI.Model
                 return true;
             }
         }
-        public SubCategory SubCategory { get { return Read.SubCategory.GetSubCategory(subcategoryId); } }
+        public SubCategory SubCategory { get { return new Read.SubCategory().GetSingle(subcategoryId); } }
     }
 }

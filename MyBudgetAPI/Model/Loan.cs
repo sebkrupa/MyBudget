@@ -13,7 +13,7 @@ namespace MyBudgetAPI.Model
         public int subcategoryId { get; set; }
         public double value { get; set; }
         public double monthlyPayments { get; set; }
-        public SubCategory SubCategory { get { return Read.SubCategory.GetSubCategory(subcategoryId); } }
+        public SubCategory SubCategory { get { return new Read.SubCategory().GetSingle(subcategoryId); } }
 
     }
 }

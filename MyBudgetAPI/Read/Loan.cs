@@ -7,22 +7,7 @@ using System.Threading.Tasks;
 
 namespace MyBudgetAPI.Read
 {
-    public static class Loan
+    public class Loan : Interfaces.Query.Read<Model.Loan>
     {
-        public static List<Model.Loan> AllLoan()
-        {
-            using (var db = DB.DBContext())
-            {
-                return db.Query<Model.Loan>("select * from Loan", new DynamicParameters()).ToList();
-            }
-        }
-
-        public static Model.Loan GetLoan(int id)
-        {
-            using (var db = DB.DBContext())
-            {
-                return db.Query<Model.Loan>($"select * from Loan where id='{id}'", new DynamicParameters()).FirstOrDefault();
-            }
-        }
     }
 }

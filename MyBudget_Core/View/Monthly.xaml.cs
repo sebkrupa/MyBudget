@@ -14,11 +14,11 @@ using System.Windows.Shapes;
 namespace MyBudget_Core.View
 {
     /// <summary>
-    /// Interaction logic for Expenses.xaml
+    /// Interaction logic for Monthly.xaml
     /// </summary>
-    public partial class Expenses : UserControl
+    public partial class Monthly : UserControl
     {
-        public Expenses()
+        public Monthly()
         {
             InitializeComponent();
         }

@@ -19,7 +19,7 @@ namespace MyBudgetAPI.Read
         {
             using (var db = DB.DBContext())
             {
-                return db.Query<Model.Category>($"select * from SubCategory where id='{id}'", new DynamicParameters()).FirstOrDefault();
+                return db.Query<Model.Category>($"select * from Category where id='{id}'", new DynamicParameters()).FirstOrDefault();
             }
         }
     }
