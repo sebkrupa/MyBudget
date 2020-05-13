@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace MyBudgetAPI.Create
 {
-    public static class Income
+    public class Income : Interfaces.Query.Create<Model.Income>
     {
-        public static void AddIncome(Model.Income income)
+        public void AddIncome(Model.Income income)
         {
             using (var db = DB.DBContext())
             {

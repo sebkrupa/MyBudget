@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MyBudgetAPI.Model
 {
-    public class IncomeType
+    public class IncomeCategory
     {
         public int id { get; set; }
         public string name { get; set; }

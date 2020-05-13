@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MyBudgetAPI.Read
 {
-    public class IncomeType : Interfaces.Query.Read<Model.IncomeType>
+    public class IncomeCategory : Interfaces.Query.Read<Model.IncomeCategory>
     {
     }
 }

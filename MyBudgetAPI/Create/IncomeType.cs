@@ -9,7 +9,7 @@ namespace MyBudgetAPI.Create
 {
     public static class IncomeType
     {
-        public static void AddIncomeType(Model.IncomeType incomeType)
+        public static void AddIncomeType(Model.IncomeCategory incomeType)
         {
             using (var db = DB.DBContext())
             {

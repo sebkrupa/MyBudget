@@ -7,10 +7,9 @@ using System.Text;
 
 namespace MyBudgetAPI.Interfaces.Query
 {
-    public abstract class Read<T>
+    public abstract class Read<T> where T : class
     {
         private string tableName;
-        //private Type type;
         public Read() => tableName = this.GetType().Name;
 
         public IEnumerable<T> GetAll()

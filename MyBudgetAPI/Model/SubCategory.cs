@@ -11,7 +11,6 @@ namespace MyBudgetAPI.Model
         public int id { get; set; }
         public int categoryId { get; set; }
         public string name { get; set; }
-        public Category Category { get { return Read.Category.GetCategory(categoryId); } }
-
+        public Category Category { get { return new Read.Category().GetSingle(categoryId); } }
     }
 }

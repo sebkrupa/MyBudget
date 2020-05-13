@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MyBudgetAPI.Model
 {
-    public class Expenses : IHistory
+    public class Expenses : IHistory, ICRUD_Fields
     {
         public int id { get; set; }
         public double value { get; set; }
@@ -19,5 +19,15 @@ namespace MyBudgetAPI.Model
         public SubCategory SubCategory { get { return new Read.SubCategory().GetSingle(subCategoryId); } }
         public string SubCategoryName { get { return SubCategory.name; } }
         public string CategoryName { get { return SubCategory.Category.name; } }
+        string[] ICRUD_Fields.CrudFields => new string[]{"value","subCategoryId","comment","date"};
+
+        public Expenses() { }
+        public Expenses(double _value, int _subCategoryId, string _comment, string _date)
+        {
+            value = _value;
+            subCategoryId = _subCategoryId;
+            comment = _comment;
+            date = _date;
+        }
     }
 }

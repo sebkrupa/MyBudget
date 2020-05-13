@@ -5,22 +5,7 @@ using System.Linq;
 
 namespace MyBudgetAPI.Read
 {
-    public static class Category
+    public class Category : Interfaces.Query.Read<Model.Category>
     {
-        public static List<Model.Category> AllCategories()
-        {
-            using (var db = DB.DBContext())
-            {
-                return db.Query<Model.Category>("select * from Category", new DynamicParameters()).ToList();
-            }
-        }
-
-        public static Model.Category GetCategory(int id)
-        {
-            using (var db = DB.DBContext())
-            {
-                return db.Query<Model.Category>($"select * from Category where id='{id}'", new DynamicParameters()).FirstOrDefault();
-            }
-        }
     }
 }
