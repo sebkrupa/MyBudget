@@ -6,6 +6,6 @@ namespace MyBudgetAPI.Interfaces
 {
     public interface ICRUD_Fields
     {
-        internal string[] CrudFields { get;}
+        internal string[] Create { get;}
     }
 }

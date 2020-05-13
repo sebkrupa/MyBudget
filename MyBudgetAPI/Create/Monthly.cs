@@ -7,15 +7,7 @@ using System.Threading.Tasks;
 
 namespace MyBudgetAPI.Create
 {
-    public static class Monthly
+    public class Monthly : Interfaces.Query.Create<Model.Monthly>
     {
-        public static void AddMonthly(Model.Monthly monthly)
-        {
-            using (var db = DB.DBContext())
-            {
-                db.Execute("insert into Monthly (subcategoryId, toSplit) " +
-                    "values (@subcategoryId, @toSplit)", monthly);
-            }
-        }
     }
 }

@@ -7,15 +7,6 @@ using System.Threading.Tasks;
 
 namespace MyBudgetAPI.Create
 {
-    public static class Category
-    {
-        public static void AddCategory(Model.Category category)
-        {
-            using (var db = DB.DBContext())
-            {
-                db.Execute("insert into Category (name) " +
-                    "values (@name)", category);
-            }
-        }
-    }
+    public class Category : Interfaces.Query.Create<Model.Category>
+    {}
 }

@@ -9,11 +9,12 @@ namespace MyBudgetAPI
 {
     public static class DB
     {
+        public static string DBPath = null;
         public static SQLiteConnection DBContext() => new SQLiteConnection(GetConnectionString());
-        public static string GetConnectionString(string path = @"C:\Users\sebkr\OneDrive\bgt.db")
+        public static string GetConnectionString()
         {
             var connString = new SQLiteConnectionStringBuilder();
-            connString.DataSource = path;
+            connString.DataSource = DBPath;
             return connString.ToString();
         }
     }

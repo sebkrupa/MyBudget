@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MyBudgetAPI.Create
 {
-    public class Loan : Interfaces.Query.Create<Model.Loan>
+    public class Expenses : Interfaces.Query.Create<Model.Expenses>
     {
     }
 }

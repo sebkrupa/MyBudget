@@ -24,16 +24,14 @@ namespace MyBudget_Core
         {
             InitializeComponent();
             Model.Windows.MainWindow = this;
-            RefreshData();
+            Model.Windows.RefreshData();
         }
+        private void MenuItem_RefreshData(object sender, RoutedEventArgs e) => Model.Windows.RefreshData();
 
-        private void RefreshData()
+        private void MenuItem_ChangeDB(object sender, RoutedEventArgs e)
         {
-            tabExpenses.Content = new ViewModel.History(new MyBudgetAPI.Read.Expenses().GetAll()).GetUC();
-            tabIncome.Content = new ViewModel.History(new MyBudgetAPI.Read.Income().GetAll()).GetUC();
-            tabMonthly.Content = new ViewModel.Monthly().GetUC();
+            DB.GetNewDBPath();
+            Model.Windows.RefreshData();
         }
-
-        private void MenuItem_Click(object sender, RoutedEventArgs e) => RefreshData();
     }
 }

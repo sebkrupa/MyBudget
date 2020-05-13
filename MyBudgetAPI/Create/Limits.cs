@@ -7,15 +7,7 @@ using System.Threading.Tasks;
 
 namespace MyBudgetAPI.Create
 {
-    public static class Limits
+    public class Limits : Interfaces.Query.Create<Model.Limits>
     {
-        public static void AddLimit(Model.Limits limits)
-        {
-            using (var db = DB.DBContext())
-            {
-                db.Execute("insert into Limits (valueLimit, subcategoryId) " +
-                    "values ($valueLimit, $subcategoryId)", limits);
-            }
-        }
     }
 }

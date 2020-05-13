@@ -1,17 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace MyBudget_Core.View
 {
@@ -21,21 +13,24 @@ namespace MyBudget_Core.View
     public partial class AmountAdd : UserControl
     {
         private bool expenditure;
-        private bool Expenditure { get { return expenditure; } 
-            set 
+        private bool Expenditure
+        {
+            get { return expenditure; }
+            set
             {
-                if(value != expenditure)
+                if (value != expenditure)
                 {
                     expenditure = value;
                     if (expenditure) ShowExpenditure();
                     else ShowIncome();
                 }
-            } }
+            }
+        }
         public AmountAdd()
         {
             InitializeComponent();
             cbxCategory.SelectionChanged += (s, e) => UpdateSubCategoryOnCategoryChange();
-            cbxInputType.SelectionChanged += (s,e) => { Expenditure = !Convert.ToBoolean(((ComboBox)s).SelectedIndex); };
+            cbxInputType.SelectionChanged += (s, e) => { Expenditure = !Convert.ToBoolean(((ComboBox)s).SelectedIndex); };
             txtValue.PreviewKeyDown += (s, e) => { if (e.Key == Key.Enter) AddNew(); };
             Expenditure = true;
         }
@@ -62,9 +57,9 @@ namespace MyBudget_Core.View
 
         private void UpdateSubCategoryOnCategoryChange()
         {
-            if(Expenditure)
+            if (Expenditure)
             {
-                if(cbxCategory.SelectedIndex != -1)
+                if (cbxCategory.SelectedIndex != -1)
                 {
                     cbxSubCategory.ItemsSource = null;
                     cbxSubCategory.ItemsSource = new MyBudgetAPI.Read.SubCategory().GetAll()
@@ -78,7 +73,7 @@ namespace MyBudget_Core.View
 
         private void AddNew()
         {
-            if(!string.IsNullOrWhiteSpace(txtValue.Text))
+            if (!string.IsNullOrWhiteSpace(txtValue.Text))
                 if (Expenditure)
                     AddExpense();
                 else
@@ -91,12 +86,16 @@ namespace MyBudget_Core.View
                 ((MyBudgetAPI.Model.SubCategory)cbxSubCategory.SelectedItem).id,
                 txtComment.Text, DateTime.Now.ToString());
             new MyBudgetAPI.Create.Expenses().Add(newItem);
+            ClearTxtControls();
         }
         private void AddIncome()
         {
             var newItem = new MyBudgetAPI.Model.Income(Convert.ToDouble(txtValue.Text),
                 DateTime.Now.ToString(), txtComment.Text, ((MyBudgetAPI.Model.IncomeCategory)cbxCategory.SelectedItem).id);
             new MyBudgetAPI.Create.Income().Add(newItem);
+            ClearTxtControls();
         }
+
+        private void ClearTxtControls() => txtComment.Text = txtValue.Text = string.Empty;
     }
 }

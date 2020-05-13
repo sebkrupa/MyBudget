@@ -13,9 +13,9 @@ namespace MyBudgetAPI.Interfaces.Query
 
         public void Add(T newItem)
         {
-            string basic = string.Join(", ",newItem.CrudFields);
+            string basic = string.Join(", ",newItem.Create);
             List<string> items = new List<string>();
-            foreach (var c in newItem.CrudFields)
+            foreach (var c in newItem.Create)
                 items.Add($"@{c}");
 
             using(var db = DB.DBContext())

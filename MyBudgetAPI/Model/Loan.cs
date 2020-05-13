@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyBudgetAPI.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace MyBudgetAPI.Model
 {
-    public class Loan
+    public class Loan : ICRUD_Fields
     {
         public int id { get; set; }
         public string name { get; set; }
-        public int subcategoryId { get; set; }
+        public int subCategoryId { get; set; }
         public double value { get; set; }
         public double monthlyPayments { get; set; }
-        public SubCategory SubCategory { get { return new Read.SubCategory().GetSingle(subcategoryId); } }
-
+        public SubCategory SubCategory { get { return new Read.SubCategory().GetSingle(subCategoryId); } }
+        string[] ICRUD_Fields.Create => new string[] { "name", "subCategoryId", "value", "monthlyPayments" };
     }
 }

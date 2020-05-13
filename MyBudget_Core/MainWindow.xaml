@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyBudget_Core"
         mc:Ignorable="d"
-        Title="Budżet" Height="450" Width="800">
+        Title="Budżet" Height="550" Width="800">
     
     <Grid>
         <Grid.RowDefinitions>
@@ -13,13 +13,27 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Menu Grid.Row="0" Height="20" VerticalAlignment="Top">
-            <MenuItem Header="Odśwież dane" Click="MenuItem_Click"/>
+            <MenuItem Header="Odśwież dane" Click="MenuItem_RefreshData"/>
+            <MenuItem Header="Baza Danych">
+                <MenuItem Header="Zmień lokalizację bazy" Click="MenuItem_ChangeDB"/>
+                <MenuItem Header="Utwórz nową"/>
+            </MenuItem>
 
         </Menu>
         <TabControl Margin="0,20,0,0">
             <TabItem x:Name="tabMonthly" Header="Miesięczne"/>
             <TabItem x:Name="tabExpenses" Header="Wydatki"/>
             <TabItem x:Name="tabIncome" Header="Przychody"/>
+            <TabItem x:Name="tabLoans" Header="Kredyty"/>
+            <TabItem x:Name="tabStats" Header="Statystyki"/>
+            <TabItem x:Name="tabSettings" Header="Ustawienia">
+                <TabControl>
+                    <TabItem x:Name="tabSettingsCategories" Header="Kategorie Wydatków"/>
+                    <TabItem x:Name="tabSettingsIncomeCategories" Header="Kategorie Przychodów"/>
+                    <TabItem x:Name="tabSettingsMonthly" Header="Miesięczne"/>
+                    <TabItem x:Name="tabSettingsLimits" Header="Limity"/>
+                </TabControl>
+            </TabItem>
         </TabControl>
         <View:AmountAdd Grid.Row="1"/>
     </Grid>
