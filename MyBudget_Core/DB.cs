@@ -1,7 +1,4 @@
 ﻿using Microsoft.Win32;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows;
 
 namespace MyBudget_Core
@@ -46,5 +43,7 @@ namespace MyBudget_Core
             DBSettings.Default.DBPath = path;
             DBSettings.Default.Save();
         }
+
+
     }
 }

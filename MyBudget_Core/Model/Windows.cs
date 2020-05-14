@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MyBudget_Core.Model
+﻿namespace MyBudget_Core.Model
 {
     public static class Windows
     {
@@ -10,8 +6,9 @@ namespace MyBudget_Core.Model
         public static void RefreshData()
         {
             MainWindow.tabExpenses.Content = new ViewModel.History(new MyBudgetAPI.Read.Expenses().GetAll()).GetUC();
-            MainWindow.tabIncome.Content = new ViewModel.History(new MyBudgetAPI.Read.Income().GetAll(),false).GetUC();
+            MainWindow.tabIncome.Content = new ViewModel.History(new MyBudgetAPI.Read.Income().GetAll(), false).GetUC();
             MainWindow.tabMonthly.Content = new ViewModel.Monthly().GetUC();
+            MainWindow.tabSettingsCategories.Content = new View.Settings.Categories();
         }
     }
 }

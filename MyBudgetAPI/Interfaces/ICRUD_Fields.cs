@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MyBudgetAPI.Interfaces
+﻿namespace MyBudgetAPI.Interfaces
 {
     public interface ICRUD_Fields
     {
-        internal string[] Create { get;}
+        internal string[] Create { get; }
+        public int id { get; set; }
     }
 }

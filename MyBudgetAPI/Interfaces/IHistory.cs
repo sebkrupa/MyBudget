@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MyBudgetAPI.Interfaces
+﻿namespace MyBudgetAPI.Interfaces
 {
     public interface IHistory : IDate
     {

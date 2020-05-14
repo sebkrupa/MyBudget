@@ -1,9 +1,5 @@
 ﻿using MyBudgetAPI.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyBudgetAPI.Model
 {
@@ -19,7 +15,7 @@ namespace MyBudgetAPI.Model
         public SubCategory SubCategory { get { return new Read.SubCategory().GetSingle(subCategoryId); } }
         public string SubCategoryName { get { return SubCategory.name; } }
         public string CategoryName { get { return SubCategory.Category.name; } }
-        string[] ICRUD_Fields.Create => new string[]{"value","subCategoryId","comment","date"};
+        string[] ICRUD_Fields.Create => new string[] { "value", "subCategoryId", "comment", "date" };
 
         public Expenses() { }
         public Expenses(double _value, int _subCategoryId, string _comment, string _date)

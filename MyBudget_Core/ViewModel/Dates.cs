@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace MyBudget_Core.ViewModel
 {
@@ -23,7 +22,7 @@ namespace MyBudget_Core.ViewModel
                 list.Add(new Model.Months(date));
                 date = date.AddMonths(1);
             }
-            while (date.Year < DateTime.Now.Year || (date.Year==DateTime.Now.Year && date.Month <= DateTime.Now.Month));
+            while (date.Year < DateTime.Now.Year || (date.Year == DateTime.Now.Year && date.Month <= DateTime.Now.Month));
             return list;
         }
     }

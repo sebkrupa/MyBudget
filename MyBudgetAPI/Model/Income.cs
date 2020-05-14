@@ -1,9 +1,5 @@
 ﻿using MyBudgetAPI.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyBudgetAPI.Model
 {
@@ -19,7 +15,7 @@ namespace MyBudgetAPI.Model
         public IncomeCategory IncomeType { get { return new Read.IncomeCategory().GetSingle(incomeTypeId); } }
         public string CategoryName { get { return IncomeType.name; } }
         public string SubCategoryName => null;
-        string[] ICRUD_Fields.Create => new string[] {"value", "date", "comment", "incomeTypeId" };
+        string[] ICRUD_Fields.Create => new string[] { "value", "date", "comment", "incomeTypeId" };
 
         public Income() { }
         public Income(double _value, string _date, string _comment, int _incomeTypeId)
@@ -29,5 +25,5 @@ namespace MyBudgetAPI.Model
             comment = _comment;
             incomeTypeId = _incomeTypeId;
         }
-}
+    }
 }

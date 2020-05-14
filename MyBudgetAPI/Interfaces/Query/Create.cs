@@ -1,8 +1,5 @@
 ﻿using Dapper;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace MyBudgetAPI.Interfaces.Query
 {
@@ -13,15 +10,15 @@ namespace MyBudgetAPI.Interfaces.Query
 
         public void Add(T newItem)
         {
-            string basic = string.Join(", ",newItem.Create);
+            string basic = string.Join(", ", newItem.Create);
             List<string> items = new List<string>();
             foreach (var c in newItem.Create)
                 items.Add($"@{c}");
 
-            using(var db = DB.DBContext())
+            using (var db = DB.DBContext())
             {
                 db.Execute($"insert into {tableName} ({basic}) " +
-                            $"values ({string.Join(", ",items)})", newItem);
+                            $"values ({string.Join(", ", items)})", newItem);
             }
         }
 

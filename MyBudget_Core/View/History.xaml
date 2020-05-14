@@ -28,6 +28,12 @@
                 <DataGridTextColumn Header="Kwota" Binding="{Binding value}"/>
                 <DataGridTextColumn Header="Data" Binding="{Binding ShortDate}"/>
             </DataGrid.Columns>
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Usuń" x:Name="menuRemove"/>
+                    <MenuItem Header="Edytuj" x:Name="menuUpdate"/>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
         </DataGrid>
     </Grid>
 </UserControl>

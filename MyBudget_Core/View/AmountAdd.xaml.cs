@@ -32,6 +32,7 @@ namespace MyBudget_Core.View
             cbxCategory.SelectionChanged += (s, e) => UpdateSubCategoryOnCategoryChange();
             cbxInputType.SelectionChanged += (s, e) => { Expenditure = !Convert.ToBoolean(((ComboBox)s).SelectedIndex); };
             txtValue.PreviewKeyDown += (s, e) => { if (e.Key == Key.Enter) AddNew(); };
+            txtComment.PreviewKeyDown += (s, e) => { if (e.Key == Key.Enter) AddNew(); };
             Expenditure = true;
         }
 
@@ -73,7 +74,7 @@ namespace MyBudget_Core.View
 
         private void AddNew()
         {
-            if (!string.IsNullOrWhiteSpace(txtValue.Text))
+            if (!string.IsNullOrWhiteSpace(txtValue.Text) && cbxCategory.SelectedIndex > -1)
                 if (Expenditure)
                     AddExpense();
                 else
@@ -82,11 +83,14 @@ namespace MyBudget_Core.View
 
         private void AddExpense()
         {
-            var newItem = new MyBudgetAPI.Model.Expenses(Convert.ToDouble(txtValue.Text),
-                ((MyBudgetAPI.Model.SubCategory)cbxSubCategory.SelectedItem).id,
-                txtComment.Text, DateTime.Now.ToString());
-            new MyBudgetAPI.Create.Expenses().Add(newItem);
-            ClearTxtControls();
+            if (cbxSubCategory.SelectedIndex > -1)
+            {
+                var newItem = new MyBudgetAPI.Model.Expenses(Convert.ToDouble(txtValue.Text),
+                                    ((MyBudgetAPI.Model.SubCategory)cbxSubCategory.SelectedItem).id,
+                                    txtComment.Text, DateTime.Now.ToString());
+                new MyBudgetAPI.Create.Expenses().Add(newItem);
+                ClearTxtControls();
+            }
         }
         private void AddIncome()
         {
