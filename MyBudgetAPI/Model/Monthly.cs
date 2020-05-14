@@ -16,6 +16,7 @@ namespace MyBudgetAPI.Model
             }
         }
         public SubCategory SubCategory { get { return new Read.SubCategory().GetSingle(subCategoryId); } }
+        public string name { get { return SubCategory.name; } }
         string[] ICRUD_Fields.Create => new string[] { "subCategoryId", "toSplit" };
     }
 }

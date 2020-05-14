@@ -12,6 +12,7 @@
             MainWindow.addAmountPanel.Children.Clear();
             MainWindow.addAmountPanel.Children.Add(new View.AmountAdd());
             MainWindow.tabSettingsIncomeCategories.Content = new View.Settings.IncomeCategories();
+            MainWindow.tabSettingsMonthly.Content = new View.Settings.Monthly();
         }
     }
 }

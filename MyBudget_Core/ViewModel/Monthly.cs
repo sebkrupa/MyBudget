@@ -6,7 +6,7 @@ using System.Windows.Media;
 
 namespace MyBudget_Core.ViewModel
 {
-    internal class Monthly : Interfaces.StandardUC
+    internal class Monthly : Interfaces.HistoryUC
     {
         private double sumOfExpensesToSplit = 0;
         private View.Monthly UC { get; set; }

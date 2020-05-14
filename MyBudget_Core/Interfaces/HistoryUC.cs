@@ -5,7 +5,7 @@ using System.Windows.Controls;
 
 namespace MyBudget_Core.Interfaces
 {
-    internal abstract class StandardUC
+    internal abstract class HistoryUC
     {
         /// <summary>
         /// list of items which will be populated
@@ -24,7 +24,7 @@ namespace MyBudget_Core.Interfaces
         /// after construct, you should assign control and cbxDates
         /// </summary>
         /// <param name="_historyList"></param>
-        internal StandardUC(IEnumerable<MyBudgetAPI.Interfaces.IHistory> _historyList)
+        internal HistoryUC(IEnumerable<MyBudgetAPI.Interfaces.IHistory> _historyList)
         {
             historyList = _historyList;
         }
