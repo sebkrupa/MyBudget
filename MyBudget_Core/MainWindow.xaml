@@ -35,6 +35,6 @@
                 </TabControl>
             </TabItem>
         </TabControl>
-        <View:AmountAdd Grid.Row="1"/>
+        <Grid x:Name="addAmountPanel" Grid.Row="1"/>
     </Grid>
 </Window>

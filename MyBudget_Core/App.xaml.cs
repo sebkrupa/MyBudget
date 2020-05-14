@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data.SQLite;
 using System.Windows;
 
 namespace MyBudget_Core
@@ -16,11 +15,11 @@ namespace MyBudget_Core
             {
                 MessageBox.Show("Prawdopodobnie wystąpił błąd z bazą danych. Zalecana jest zmiana lokalizacji bazy.");
                 DB.GetNewDBPath();
-                
+
             }
 
         }
 
-        
+
     }
 }

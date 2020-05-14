@@ -1,7 +1,4 @@
 ﻿using Dapper;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace MyBudgetAPI.Delete
 {
@@ -15,7 +12,7 @@ namespace MyBudgetAPI.Delete
 
         public void RemoveSubCategoriesRelatedToCategory(Model.Category category)
         {
-            using(var db = DB.DBContext())
+            using (var db = DB.DBContext())
             {
                 db.Execute($"delete from SubCategory where categoryID={category.id}");
             }

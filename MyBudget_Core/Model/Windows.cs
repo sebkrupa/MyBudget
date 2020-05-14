@@ -9,6 +9,9 @@
             MainWindow.tabIncome.Content = new ViewModel.History(new MyBudgetAPI.Read.Income().GetAll(), false).GetUC();
             MainWindow.tabMonthly.Content = new ViewModel.Monthly().GetUC();
             MainWindow.tabSettingsCategories.Content = new View.Settings.Categories();
+            MainWindow.addAmountPanel.Children.Clear();
+            MainWindow.addAmountPanel.Children.Add(new View.AmountAdd());
+            MainWindow.tabSettingsIncomeCategories.Content = new View.Settings.IncomeCategories();
         }
     }
 }

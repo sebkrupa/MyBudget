@@ -18,6 +18,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>DBSettings.settings</DependentUpon>
     </Compile>
+    <Compile Update="View\Settings\IncomeCategories.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -26,6 +29,12 @@
       <LastGenOutput>DBSettings.Designer.cs</LastGenOutput>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="View\Settings\IncomeCategories.xaml">
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
 
 </Project>

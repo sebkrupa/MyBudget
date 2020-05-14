@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -16,7 +15,7 @@ namespace MyBudget_Core.View.Settings
             PrepareControl();
             listCategories.SelectionChanged += (s, e) =>
             {
-                if(listCategories.SelectedItem != null)
+                if (listCategories.SelectedItem != null)
                 {
                     listSubCategories.ItemsSource = null;
                     listSubCategories.ItemsSource = new MyBudgetAPI.Read.SubCategory().
@@ -70,7 +69,7 @@ namespace MyBudget_Core.View.Settings
 
         private void MenuItem_DeleteCategory(object sender, RoutedEventArgs e)
         {
-            if(listCategories.SelectedItem != null)
+            if (listCategories.SelectedItem != null)
             {
                 var categoryToRemove = (MyBudgetAPI.Model.Category)listCategories.SelectedItem;
                 new MyBudgetAPI.Delete.Category().RemoveItem(categoryToRemove);
