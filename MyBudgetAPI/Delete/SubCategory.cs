@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dapper;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -8,12 +9,16 @@ namespace MyBudgetAPI.Delete
     {
         public SubCategory()
         {
-            base.RemoveForeignKeys += RemoveLoans;
+            base.RemoveForeignKeys += new Loan().RemoveLoansBySubCategoryId;
+            base.RemoveForeignKeys += new Monthly().RemoveMonthlyBySubCategoryId;
         }
 
-        private void RemoveLoans(Model.SubCategory subCategory)
+        public void RemoveSubCategoriesRelatedToCategory(Model.Category category)
         {
-
+            using(var db = DB.DBContext())
+            {
+                db.Execute($"delete from SubCategory where categoryID={category.id}");
+            }
         }
     }
 }
