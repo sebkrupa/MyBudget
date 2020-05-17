@@ -34,6 +34,7 @@ namespace MyBudget_Core.View
             txtValue.PreviewKeyDown += (s, e) => { if (e.Key == Key.Enter) AddNew(); };
             txtComment.PreviewKeyDown += (s, e) => { if (e.Key == Key.Enter) AddNew(); };
             Expenditure = true;
+            datePicker.SelectedDate = DateTime.Now;
         }
 
         private Regex numericOnly = new Regex("[^0-9.-]+");
@@ -87,7 +88,7 @@ namespace MyBudget_Core.View
             {
                 var newItem = new MyBudgetAPI.Model.Expenses(Convert.ToDouble(txtValue.Text),
                                     ((MyBudgetAPI.Model.SubCategory)cbxSubCategory.SelectedItem).id,
-                                    txtComment.Text, DateTime.Now.ToString());
+                                    txtComment.Text, datePicker.SelectedDate.ToString());
                 new MyBudgetAPI.Create.Expenses().Add(newItem);
                 ClearTxtControls();
             }
@@ -95,7 +96,7 @@ namespace MyBudget_Core.View
         private void AddIncome()
         {
             var newItem = new MyBudgetAPI.Model.Income(Convert.ToDouble(txtValue.Text),
-                DateTime.Now.ToString(), txtComment.Text, ((MyBudgetAPI.Model.IncomeCategory)cbxCategory.SelectedItem).id);
+                datePicker.SelectedDate.ToString(), txtComment.Text, ((MyBudgetAPI.Model.IncomeCategory)cbxCategory.SelectedItem).id);
             new MyBudgetAPI.Create.Income().Add(newItem);
             ClearTxtControls();
         }

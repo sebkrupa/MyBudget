@@ -1,10 +1,8 @@
 ﻿using LiveCharts;
-using LiveCharts.Wpf;
-using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Controls;
-using System.Windows.Controls.DataVisualization.Charting;
+using System.Windows.Input;
 
 namespace MyBudget_Core.View.Statistics
 {
@@ -14,14 +12,15 @@ namespace MyBudget_Core.View.Statistics
     public partial class Charting : UserControl
     {
         public SeriesCollection mySeries { get; set; } = new SeriesCollection();
-        public List<string> labelsX { get; set; } = new string[] { "sty", "lut", "mar", "kwi", "maj", "cze", "lip", "sie", "wrz", "paz", "lis", "gru" }.ToList();
         public Charting()
         {
             InitializeComponent();
+            SetXLabels_Months();
             DataContext = this;
         }
-            
-        public void SetXLabels(string[] labels) => chart.AxisX[0].Labels = labels.ToList();
+
+        public void SetXLabels_Years(string[] years) => chart.AxisX[0].Labels = years.ToList();
+        public void SetXLabels_Months() => chart.AxisX[0].Labels = new string[] { "Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec", "Lipiec", "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień" }.ToList();
         public void AddToChart(string title, double[] values)
         {
             var series = new LiveCharts.Wpf.LineSeries();
@@ -38,5 +37,23 @@ namespace MyBudget_Core.View.Statistics
             var toRemove = mySeries.Where(x => x.Title == title).FirstOrDefault();
             mySeries.Remove(toRemove);
         }
+
+        public void RemoveAllFromChart() => mySeries.Clear();
+
+        private void MenuItem_ZoomIn(object sender, System.Windows.RoutedEventArgs e)
+        {
+            var mouseCoordinates = Mouse.GetPosition(this);
+            LiveCharts.Dtos.CorePoint point = new LiveCharts.Dtos.CorePoint(mouseCoordinates.X, mouseCoordinates.Y);
+            mySeries.Chart.ZoomIn(point);
+        }
+
+        private void MenuItem_ZoomOut(object sender, System.Windows.RoutedEventArgs e)
+        {
+            var mouseCoordinates = Mouse.GetPosition(this);
+            LiveCharts.Dtos.CorePoint point = new LiveCharts.Dtos.CorePoint(mouseCoordinates.X, mouseCoordinates.Y);
+            mySeries.Chart.ZoomOut(point);
+        }
+
+        private void MenuItem_ZoomReset(object sender, System.Windows.RoutedEventArgs e) => mySeries.Chart.ClearZoom();
     }
 }

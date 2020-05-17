@@ -10,7 +10,8 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition x:Name="panelAdd" Height="*"/>
         </Grid.RowDefinitions>
         <Menu Grid.Row="0" Height="20" VerticalAlignment="Top">
             <MenuItem Header="Odśwież dane" Click="MenuItem_RefreshData"/>
@@ -35,6 +36,9 @@
                 </TabControl>
             </TabItem>
         </TabControl>
-        <Grid x:Name="addAmountPanel" Grid.Row="1"/>
+        <TextBlock x:Name="txtHide" Text="v" Grid.Row="1" TextAlignment="Center" FontSize="8" 
+                   VerticalAlignment="Stretch" PreviewMouseLeftButtonDown="TextBlock_HideShowAddPanel" 
+                   MouseEnter="TextBlock_MouseEnter" MouseLeave="TextBlock_MouseLeave"/>
+        <Grid x:Name="addAmountPanel" Grid.Row="2"/>
     </Grid>
 </Window>

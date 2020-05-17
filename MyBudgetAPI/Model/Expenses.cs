@@ -12,7 +12,7 @@ namespace MyBudgetAPI.Model
         public string date { get; set; }
         public DateTime Date { get { return DateTime.Parse(date); } }
         public string ShortDate { get { return Date.ToShortDateString(); } }
-        public SubCategory SubCategory { get { return new Read.SubCategory().GetSingle(subCategoryId) ?? new SubCategory() { name = "-" }; } }
+        public SubCategory SubCategory { get { return new Read.SubCategory().GetSingle(subCategoryId);/* ?? new SubCategory() { name = "-" };*/ } }
         public string SubCategoryName { get { return SubCategory.name ?? string.Empty; } }
         public string CategoryName { get { return SubCategory.Category == null ? string.Empty : SubCategory.Category.name; } }
         string[] ICRUD_Fields.Create => new string[] { "value", "subCategoryId", "comment", "date" };

@@ -26,7 +26,7 @@ namespace MyBudget_Core.ViewModel
             UC.listMonthly.Items.Clear();
             var monthly = new MyBudgetAPI.Read.Monthly().GetAll();
             foreach (var c in monthly)
-                UC.listMonthly.Items.Add(lvItem(c.SubCategory.name, GetSum(c.id, date), c.ToSplit));
+                UC.listMonthly.Items.Add(lvItem(c.SubCategory.name, GetSum(c.subCategoryId, date), c.ToSplit));
             DivideSumOfExpenses();
         }
 

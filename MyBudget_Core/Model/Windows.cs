@@ -13,7 +13,7 @@
             MainWindow.addAmountPanel.Children.Add(new View.AmountAdd());
             MainWindow.tabSettingsIncomeCategories.Content = new View.Settings.IncomeCategories();
             MainWindow.tabSettingsMonthly.Content = new View.Settings.Monthly();
-            MainWindow.tabStats.Content = new View.Statistics.AverageExpenditure();
+            MainWindow.tabStats.Content = new View.Statistics.AverageMonthly();
         }
     }
 }

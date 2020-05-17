@@ -4,15 +4,22 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MyBudget_Core.View.Statistics"
-             xmlns:DV="clr-namespace:System.Windows.Controls.DataVisualization;assembly=System.Windows.Controls.DataVisualization.Toolkit"  
-             xmlns:DVC="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit" 
              xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <lvc:CartesianChart x:Name="chart" Series="{Binding Path=mySeries}">
+
+            <lvc:CartesianChart.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Przybliż" Click="MenuItem_ZoomIn"/>
+                    <MenuItem Header="Oddal" Click="MenuItem_ZoomOut"/>
+                    <Separator/>
+                    <MenuItem Header="Resetuj widok" Click="MenuItem_ZoomReset"/>
+                </ContextMenu>
+            </lvc:CartesianChart.ContextMenu>
             <lvc:CartesianChart.AxisX>
-                <lvc:Axis Title="Miesiące" Labels="{Binding Path=labelsX}"/>
+                <lvc:Axis Title="Miesiące"/>
             </lvc:CartesianChart.AxisX>
             <lvc:CartesianChart.AxisY>
                 <lvc:Axis Title="Kwota"/>

@@ -4,7 +4,7 @@ namespace MyBudgetAPI.Model
 {
     public class Monthly : ICRUD_Fields
     {
-        public int id { get { return subCategoryId; } set { } }
+        public int id { get; set; }
         public int subCategoryId { get; set; }
         public int toSplit { get; set; }
         public bool ToSplit
@@ -15,7 +15,7 @@ namespace MyBudgetAPI.Model
                 return true;
             }
         }
-        public SubCategory SubCategory { get { return new Read.SubCategory().GetSingle(id); } }
+        public SubCategory SubCategory { get { return new Read.SubCategory().GetSingle(subCategoryId); } }
         public string name { get { return SubCategory.name; } }
         string[] ICRUD_Fields.Create => new string[] { "subCategoryId", "toSplit" };
     }

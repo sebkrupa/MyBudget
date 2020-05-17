@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="MyBudget_Core.View.Settings.Monthly"
+﻿<UserControl xmlns:Basic="clr-namespace:MyBudget_Core.View.Basic"  x:Class="MyBudget_Core.View.Settings.Monthly"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -28,9 +28,7 @@
             </ListView.ContextMenu>
         </ListView>
         <StackPanel Grid.Column="1" VerticalAlignment="Center">
-            <TextBlock Text="Kategorie" Margin="5"/>
-            <ComboBox x:Name="cbxCategory" DisplayMemberPath="name" Margin="5"/>
-            <ComboBox x:Name="cbxSubCategory" DisplayMemberPath="name" Margin="5"/>
+            <Basic:CategoriesPicker x:Name="categoriesPicker" />
             <ComboBox x:Name="cbxToSplit" Margin="5">
                 <ComboBoxItem Content="Nie wliczaj do podziału" IsSelected="True"/>
                 <ComboBoxItem Content="Wliczaj do podziału"/>
