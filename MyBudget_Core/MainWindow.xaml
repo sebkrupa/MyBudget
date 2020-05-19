@@ -26,6 +26,7 @@
             <TabItem x:Name="tabExpenses" Header="Wydatki"/>
             <TabItem x:Name="tabIncome" Header="Przychody"/>
             <TabItem x:Name="tabLoans" Header="Kredyty"/>
+            <TabItem x:Name="tabSubs" Header="Subskrypcje"/>
             <TabItem x:Name="tabStats" Header="Statystyki"/>
             <TabItem x:Name="tabSettings" Header="Ustawienia">
                 <TabControl>

@@ -1,7 +1,5 @@
 ﻿using MyBudgetAPI.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace MyBudgetAPI.Model
 {
@@ -13,8 +11,8 @@ namespace MyBudgetAPI.Model
         public decimal amount { get; set; }
         public string date { get; set; }
         public string comment { get; set; }
-        public decimal travelKm { get; set; }
+        public decimal totalKm { get; set; }
         public DateTime Date { get { return DateTime.Parse(date); } }
-        string[] ICRUD_Fields.Create => new string[] { "station", "capacity", "amount", "date", "comment","travelKm" };
+        string[] ICRUD_Fields.Create => new string[] { "station", "capacity", "amount", "date", "comment", "totalKm" };
     }
 }

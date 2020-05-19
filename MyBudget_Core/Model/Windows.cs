@@ -14,6 +14,8 @@
             MainWindow.tabSettingsIncomeCategories.Content = new View.Settings.IncomeCategories();
             MainWindow.tabSettingsMonthly.Content = new View.Settings.Monthly();
             MainWindow.tabStats.Content = new View.Statistics.AverageMonthly();
+            MainWindow.tabSubs.Content = new View.Subscriptions();
+            MainWindow.tabLoans.Content = new View.Loans();
         }
     }
 }

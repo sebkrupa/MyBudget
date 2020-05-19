@@ -8,11 +8,16 @@ namespace MyBudgetAPI.Interfaces.Query
         public Delete() => tableName = this.GetType().Name;
         public void RemoveItem(T itemToRemove)
         {
+            RemoveItem(itemToRemove.id);
+            RemoveForeignKeys?.Invoke(itemToRemove);
+        }
+
+        public void RemoveItem(int id)
+        {
             using (var db = DB.DBContext())
             {
-                db.Execute($"delete from {tableName} where id={itemToRemove.id}");
+                db.Execute($"delete from {tableName} where id={id}");
             }
-            RemoveForeignKeys?.Invoke(itemToRemove);
         }
 
         public delegate void AdditionalRemove(T itemToRemove);
