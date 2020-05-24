@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using System.Runtime.CompilerServices;
 using System.Windows;
 
 namespace MyBudget_Core
@@ -42,6 +43,21 @@ namespace MyBudget_Core
             MyBudgetAPI.DB.DBPath = path;
             DBSettings.Default.DBPath = path;
             DBSettings.Default.Save();
+        }
+
+        internal static void CreateNewDB()
+        {
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.DefaultExt = "db";
+            dialog.Filter = "Bazy danych(*.db)| *.db";
+            dialog.AddExtension = true;
+            dialog.ShowDialog();
+            if(!string.IsNullOrWhiteSpace(dialog.FileName))
+            {
+                MyBudgetAPI.DB.CreateNewDB(dialog.FileName);
+                MessageBox.Show($"Utworzono nową bazę danych w lokalizacji:\n{dialog.FileName}");
+            }
+
         }
 
 

@@ -1,4 +1,5 @@
 ﻿using System.Data.SQLite;
+using System.IO;
 
 namespace MyBudgetAPI
 {
@@ -11,6 +12,11 @@ namespace MyBudgetAPI
             var connString = new SQLiteConnectionStringBuilder();
             connString.DataSource = DBPath;
             return connString.ToString();
+        }
+
+        public static void CreateNewDB(string path)
+        {
+            File.Copy(@"Resources\DefaultDB.db", path);
         }
     }
 }

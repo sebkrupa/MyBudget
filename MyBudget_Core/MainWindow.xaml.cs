@@ -42,5 +42,7 @@ namespace MyBudget_Core
         private void TextBlock_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e) => ((TextBlock)sender).Background = Brushes.LightBlue;
 
         private void TextBlock_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e) => ((TextBlock)sender).Background = Brushes.Transparent;
+
+        private void MenuItem_CreateDB(object sender, RoutedEventArgs e) => DB.CreateNewDB();
     }
 }

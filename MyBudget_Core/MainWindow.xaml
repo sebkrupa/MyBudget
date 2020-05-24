@@ -17,7 +17,7 @@
             <MenuItem Header="Odśwież dane" Click="MenuItem_RefreshData"/>
             <MenuItem Header="Baza Danych">
                 <MenuItem Header="Zmień lokalizację bazy" Click="MenuItem_ChangeDB"/>
-                <MenuItem Header="Utwórz nową"/>
+                <MenuItem Header="Utwórz nową" Click="MenuItem_CreateDB"/>
             </MenuItem>
 
         </Menu>
