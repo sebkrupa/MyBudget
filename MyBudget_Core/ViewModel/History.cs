@@ -30,7 +30,7 @@ namespace MyBudget_Core.ViewModel
 
         internal void RemoveItem(IHistory historyItem)
         {
-            switch(historyItem)
+            switch (historyItem)
             {
                 case MyBudgetAPI.Model.Expenses e:
                     new MyBudgetAPI.Delete.Expenses().RemoveItem(e);

@@ -15,6 +15,7 @@ namespace MyBudget_Core.View.Settings
             PrepareControl();
             categoriesPicker.cbxCategory.SelectionChanged -= categoriesPicker.SelectionChangedEvent;
             categoriesPicker.ChangeCategorySelectionChanged(CategoryChangedEvent);
+            Model.Windows.RefreshView += PrepareControl;
         }
 
         private void CategoryChangedEvent(object sender, SelectionChangedEventArgs e)

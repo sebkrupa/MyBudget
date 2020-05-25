@@ -27,6 +27,7 @@ namespace MyBudget_Core.Interfaces
         internal HistoryUC(IEnumerable<MyBudgetAPI.Interfaces.IHistory> _historyList)
         {
             historyList = _historyList;
+            Model.Windows.RefreshView += RefreshList;
         }
 
 

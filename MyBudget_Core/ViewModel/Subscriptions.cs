@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Windows.Controls;
 using System.Windows.Media;
 
@@ -12,7 +11,7 @@ namespace MyBudget_Core.ViewModel
         {
             List<ListViewItem> items = new List<ListViewItem>();
             var subs = new MyBudgetAPI.Read.Subscriptions().OrderedSubstriptionList();
-            foreach(var c in subs)
+            foreach (var c in subs)
             {
                 var color = c.timeFrameInMonths == 12 ? Brushes.LightBlue : Brushes.Transparent;
                 items.Add(new ListViewItem()
@@ -23,7 +22,7 @@ namespace MyBudget_Core.ViewModel
                     Tag = c.id
                 });
             }
-            foreach(var c in items)
+            foreach (var c in items)
             {
                 var contextMenu = new ContextMenu();
                 var menu = new MenuItem();

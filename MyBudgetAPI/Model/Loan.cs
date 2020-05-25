@@ -13,9 +13,12 @@ namespace MyBudgetAPI.Model
         public SubCategory SubCategory { get { return new Read.SubCategory().GetSingle(subCategoryId); } }
         string[] ICRUD_Fields.Create => new string[] { "name", "subCategoryId", "value", "monthlyPayments" };
 
-        public double AlreadyPaid { get
+        public double AlreadyPaid
+        {
+            get
             {
                 return new Read.Expenses().GetAll().Where(x => x.subCategoryId == subCategoryId).Sum(x => x.value);
-            } }
+            }
+        }
     }
 }

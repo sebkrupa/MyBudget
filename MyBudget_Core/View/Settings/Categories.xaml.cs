@@ -24,6 +24,7 @@ namespace MyBudget_Core.View.Settings
                     OrderBy(x => x.name);
                 }
             };
+            Model.Windows.RefreshView += PrepareControl;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

@@ -1,16 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace MyBudget_Core.View.Statistics
 {
@@ -27,7 +20,6 @@ namespace MyBudget_Core.View.Statistics
             InitializeComponent();
             btnAdd.Click += AddMonthly;
         }
-
 
         private void AddMonthly(object sender, RoutedEventArgs e)
         {
@@ -56,7 +48,7 @@ namespace MyBudget_Core.View.Statistics
                 if (categoryPicker.cbxCategory.SelectedItem != null)
                 {
                     var selectedCategory = (MyBudgetAPI.Model.Category)categoryPicker.cbxCategory.SelectedItem;
-                    mainChart.AddToChart(selectedCategory.name, ViewModel.Statistics.GetCategoryExpensesYearly(selectedCategory.id,yearsBack));
+                    mainChart.AddToChart(selectedCategory.name, ViewModel.Statistics.GetCategoryExpensesYearly(selectedCategory.id, yearsBack));
                 }
             }
             else
@@ -64,7 +56,7 @@ namespace MyBudget_Core.View.Statistics
                 if (categoryPicker.cbxSubCategory.SelectedItem != null)
                 {
                     var selectedSubCategory = (MyBudgetAPI.Model.SubCategory)categoryPicker.cbxSubCategory.SelectedItem;
-                    mainChart.AddToChart(selectedSubCategory.name, ViewModel.Statistics.GetSubCategoryExpensesYearly(selectedSubCategory.id,yearsBack));
+                    mainChart.AddToChart(selectedSubCategory.name, ViewModel.Statistics.GetSubCategoryExpensesYearly(selectedSubCategory.id, yearsBack));
                 }
             }
         }
@@ -82,7 +74,7 @@ namespace MyBudget_Core.View.Statistics
         private void TextBlock_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             hideAdd = !hideAdd;
-            if(hideAdd)
+            if (hideAdd)
             {
                 panelAdd.Height = new GridLength(0);
                 txtHide.Text = "^";
@@ -94,7 +86,7 @@ namespace MyBudget_Core.View.Statistics
             }
         }
 
-        private void checkCategoriesOnly_Click(object sender, RoutedEventArgs e) => categoryPicker.cbxSubCategory.IsEnabled = !((CheckBox) sender).IsChecked.Value;
+        private void checkCategoriesOnly_Click(object sender, RoutedEventArgs e) => categoryPicker.cbxSubCategory.IsEnabled = !((CheckBox)sender).IsChecked.Value;
 
         private void radioMonth_Click(object sender, RoutedEventArgs e)
         {

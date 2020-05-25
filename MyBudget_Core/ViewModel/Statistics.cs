@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace MyBudget_Core.ViewModel
 {
@@ -30,8 +29,8 @@ namespace MyBudget_Core.ViewModel
             double[] yearlyExpenses = new double[yearsBack];
             for (int i = 0; i < yearsBack; i++)
             {
-                double sum = expenses.Where(x => x.Date.Year == DateTime.Now.Year-i).Sum(x => x.value);
-                yearlyExpenses[yearsBack - (i+1)] = sum;
+                double sum = expenses.Where(x => x.Date.Year == DateTime.Now.Year - i).Sum(x => x.value);
+                yearlyExpenses[yearsBack - (i + 1)] = sum;
             }
             return yearlyExpenses;
         }

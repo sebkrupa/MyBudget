@@ -1,15 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace MyBudget_Core.View
 {
@@ -21,6 +12,12 @@ namespace MyBudget_Core.View
         public Subscriptions()
         {
             InitializeComponent();
+            PrepareControl();
+            Model.Windows.RefreshView += PrepareControl;
+        }
+
+        private void PrepareControl()
+        {
             datePicker.SelectedDate = DateTime.Now;
             listSubs.ItemsSource = ViewModel.Subscriptions.GetSubscriptionsList();
             txtSumYearly.Text += ViewModel.Subscriptions.GetSumOfYearlySubs();
@@ -28,9 +25,9 @@ namespace MyBudget_Core.View
 
         private void Button_Click(object sender, RoutedEventArgs e) =>
             ViewModel.Subscriptions.AddNewSubscription(
-                txtName.Text, 
-                datePicker.SelectedDate.Value, 
-                txtComment.Text, 
+                txtName.Text,
+                datePicker.SelectedDate.Value,
+                txtComment.Text,
                 Decimal.Parse(txtValue.Text),
                 Convert.ToInt32(((ComboBoxItem)cbxTimeFrame.SelectedItem).Tag));
     }

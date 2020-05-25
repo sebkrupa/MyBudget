@@ -1,6 +1,4 @@
-﻿using MyBudgetAPI.Create;
-using System;
-using System.ComponentModel;
+﻿using System;
 using System.Linq;
 using System.Windows.Controls;
 
@@ -15,12 +13,19 @@ namespace MyBudget_Core.View.Basic
         public CategoriesPicker()
         {
             InitializeComponent();
-            cbxCategory.ItemsSource = new MyBudgetAPI.Read.Category().GetAll().OrderBy(x => x.name);
+            Refresh();
             SelectionChangedEvent = new SelectionChangedEventHandler(SelectCategory);
             cbxCategory.SelectionChanged += SelectionChangedEvent;
+            Model.Windows.RefreshView += Refresh;
         }
 
-        public void ChangeCategorySelectionChanged(Action<object,SelectionChangedEventArgs> action)
+        private void Refresh()
+        {
+            cbxSubCategory.ItemsSource = null;
+            cbxCategory.ItemsSource = new MyBudgetAPI.Read.Category().GetAll().OrderBy(x => x.name);
+        }
+
+        public void ChangeCategorySelectionChanged(Action<object, SelectionChangedEventArgs> action)
         {
             cbxCategory.SelectionChanged -= SelectionChangedEvent;
             cbxCategory.SelectionChanged += new SelectionChangedEventHandler(action);

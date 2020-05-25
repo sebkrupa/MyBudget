@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace MyBudget_Core.ViewModel
 {
@@ -10,7 +8,7 @@ namespace MyBudget_Core.ViewModel
         {
             var list = new List<Loan>();
             var loans = new MyBudgetAPI.Read.Loan().GetAll();
-            foreach(var c in loans)
+            foreach (var c in loans)
             {
                 list.Add(new Loan()
                 {

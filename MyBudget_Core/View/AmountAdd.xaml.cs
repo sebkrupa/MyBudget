@@ -29,12 +29,18 @@ namespace MyBudget_Core.View
         public AmountAdd()
         {
             InitializeComponent();
+            PrepareUC();
+        }
+
+        private void PrepareUC()
+        {
             cbxCategory.SelectionChanged += (s, e) => UpdateSubCategoryOnCategoryChange();
             cbxInputType.SelectionChanged += (s, e) => { Expenditure = !Convert.ToBoolean(((ComboBox)s).SelectedIndex); };
             txtValue.PreviewKeyDown += (s, e) => { if (e.Key == Key.Enter) AddNew(); };
             txtComment.PreviewKeyDown += (s, e) => { if (e.Key == Key.Enter) AddNew(); };
             Expenditure = true;
             datePicker.SelectedDate = DateTime.Now;
+
         }
 
         private Regex numericOnly = new Regex("[^0-9.-]+");

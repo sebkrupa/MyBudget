@@ -1,13 +1,16 @@
 ﻿using Microsoft.Win32;
-using System.Runtime.CompilerServices;
 using System.Windows;
 
 namespace MyBudget_Core
 {
     internal static class DB
     {
+        /// <summary>
+        /// zweryfikuj i połącz się z bazą danych
+        /// </summary>
         internal static void ValidateDB()
         {
+            //jeżeli dotąd nie wybrano zadnej bazy
             if (string.IsNullOrWhiteSpace(DBSettings.Default.DBPath))
             {
                 var msg = MessageBox.Show("Nie wybrano żadnej bazy danych. Czy chcesz wybrać nową bazę?",
@@ -15,6 +18,7 @@ namespace MyBudget_Core
                 if (msg == MessageBoxResult.No) Application.Current.Shutdown();
                 GetNewDBPath();
             }
+            //jeżeli wybrano, sprawdź czy na pewno istnieje
             if (System.IO.File.Exists(DBSettings.Default.DBPath))
                 MyBudgetAPI.DB.DBPath = DBSettings.Default.DBPath;
             else
@@ -52,7 +56,7 @@ namespace MyBudget_Core
             dialog.Filter = "Bazy danych(*.db)| *.db";
             dialog.AddExtension = true;
             dialog.ShowDialog();
-            if(!string.IsNullOrWhiteSpace(dialog.FileName))
+            if (!string.IsNullOrWhiteSpace(dialog.FileName))
             {
                 MyBudgetAPI.DB.CreateNewDB(dialog.FileName);
                 MessageBox.Show($"Utworzono nową bazę danych w lokalizacji:\n{dialog.FileName}");

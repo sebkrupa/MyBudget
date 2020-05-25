@@ -12,7 +12,7 @@ namespace MyBudget_Core {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.5.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.6.0.0")]
     internal sealed partial class DBSettings : global::System.Configuration.ApplicationSettingsBase {
         
         private static DBSettings defaultInstance = ((DBSettings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new DBSettings())));
@@ -32,6 +32,18 @@ namespace MyBudget_Core {
             }
             set {
                 this["DBPath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int FuelSubCategory {
+            get {
+                return ((int)(this["FuelSubCategory"]));
+            }
+            set {
+                this["FuelSubCategory"] = value;
             }
         }
     }

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace MyBudgetAPI.Read
 {
@@ -18,7 +17,7 @@ namespace MyBudgetAPI.Read
                 result.Add(c);
             }
 
-            foreach(var c in list.Where(x=>x.timeFrameInMonths == 1))
+            foreach (var c in list.Where(x => x.timeFrameInMonths == 1))
             {
                 c.Date = new DateTime(DateTime.Now.Year, DateTime.Now.Month, c.Date.Day);
                 if (c.Date < DateTime.Now) c.Date = c.Date.AddMonths(1);

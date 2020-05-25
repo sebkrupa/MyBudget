@@ -13,6 +13,7 @@ namespace MyBudget_Core.View.Settings
         {
             InitializeComponent();
             PrepareControl();
+            Model.Windows.RefreshView += PrepareControl;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e) => AddNewCategory();

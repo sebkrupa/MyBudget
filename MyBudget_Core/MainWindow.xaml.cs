@@ -16,7 +16,7 @@ namespace MyBudget_Core
             Model.Windows.MainWindow = this;
             Model.Windows.RefreshData();
         }
-        private void MenuItem_RefreshData(object sender, RoutedEventArgs e) => Model.Windows.RefreshData();
+        private void MenuItem_RefreshData(object sender, RoutedEventArgs e) => Model.Windows.RefreshAll();
 
         private void MenuItem_ChangeDB(object sender, RoutedEventArgs e)
         {
@@ -44,5 +44,7 @@ namespace MyBudget_Core
         private void TextBlock_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e) => ((TextBlock)sender).Background = Brushes.Transparent;
 
         private void MenuItem_CreateDB(object sender, RoutedEventArgs e) => DB.CreateNewDB();
+
+        private void MenuItem_RefreshView(object sender, RoutedEventArgs e) => Model.Windows.RefreshView?.Invoke();
     }
 }
