@@ -45,6 +45,5 @@ namespace MyBudget_Core
 
         private void MenuItem_CreateDB(object sender, RoutedEventArgs e) => DB.CreateNewDB();
 
-        private void MenuItem_RefreshView(object sender, RoutedEventArgs e) => Model.Windows.RefreshView?.Invoke();
     }
 }

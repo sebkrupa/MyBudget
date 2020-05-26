@@ -12,14 +12,14 @@ namespace MyBudget_Core.Model
             MainWindow.tabExpenses.Content = new ViewModel.History(new MyBudgetAPI.Read.Expenses().GetAll()).GetUC();
             MainWindow.tabIncome.Content = new ViewModel.History(new MyBudgetAPI.Read.Income().GetAll(), false).GetUC();
             MainWindow.tabMonthly.Content = new ViewModel.Monthly().GetUC();
-            //monthly sie odświeża po delegacie, zrobić tak z resztą i zainicjalizaować w mainwindow
         }
 
         public static async void RefreshAll()
         {
             string title = MainWindow.Title;
-            MainWindow.Title = "Trwa aktualizacja danych";
+            MainWindow.Title = "Trwa aktualizacja cash flow";
             await Dispatcher.CurrentDispatcher.InvokeAsync(RefreshData);
+            MainWindow.Title = "Odświeżam pozostałe okna";
             await Dispatcher.CurrentDispatcher.InvokeAsync(RefreshView);
 
             MainWindow.Title = title;
