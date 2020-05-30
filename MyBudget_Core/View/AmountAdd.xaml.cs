@@ -43,7 +43,7 @@ namespace MyBudget_Core.View
 
         }
 
-        private Regex numericOnly = new Regex("[^0-9.-]+");
+        private Regex numericOnly = new Regex("[^0-9,-]+");
 
         private void txtValue_PreviewTextInput(object sender, TextCompositionEventArgs e) => e.Handled = numericOnly.IsMatch(e.Text);
 

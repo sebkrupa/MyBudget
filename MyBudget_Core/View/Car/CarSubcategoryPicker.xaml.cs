@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace MyBudget_Core.View.Car
@@ -21,11 +23,19 @@ namespace MyBudget_Core.View.Car
         {
             if (DBSettings.Default.FuelSubCategory != 0)
             {
-                var selectedSubCategory = new MyBudgetAPI.Read.SubCategory().GetSingle(DBSettings.Default.FuelSubCategory);
-                categoriesPicker.cbxCategory.SelectedItem = ((IEnumerable<MyBudgetAPI.Model.Category>)categoriesPicker.cbxCategory.ItemsSource).
-                                                                                            Where(x => x.id == selectedSubCategory.categoryId).FirstOrDefault();
-                categoriesPicker.cbxSubCategory.SelectedItem = ((IEnumerable<MyBudgetAPI.Model.SubCategory>)categoriesPicker.cbxSubCategory.ItemsSource).
-                                                                                                        Where(x => x.id == selectedSubCategory.id).FirstOrDefault();
+                try
+                {
+                    var selectedSubCategory = new MyBudgetAPI.Read.SubCategory().GetSingle(DBSettings.Default.FuelSubCategory);
+                    categoriesPicker.cbxCategory.SelectedItem = ((IEnumerable<MyBudgetAPI.Model.Category>)categoriesPicker.cbxCategory.ItemsSource).
+                                                                                                Where(x => x.id == selectedSubCategory.categoryId).FirstOrDefault();
+                    categoriesPicker.cbxSubCategory.SelectedItem = ((IEnumerable<MyBudgetAPI.Model.SubCategory>)categoriesPicker.cbxSubCategory.ItemsSource).
+                                                                                                            Where(x => x.id == selectedSubCategory.id).FirstOrDefault();
+                }
+                catch(NullReferenceException e)
+                {
+                    MessageBox.Show("Wystąpił problem z ustaleniem domyślnej kategorii dla paliwa");
+                }
+
             }
         }
 

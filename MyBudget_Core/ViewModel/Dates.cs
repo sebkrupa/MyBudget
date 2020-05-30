@@ -9,8 +9,13 @@ namespace MyBudget_Core.ViewModel
 
         private static DateTime GetOldestDate(IEnumerable<MyBudgetAPI.Interfaces.IDate> date)
         {
-            DateTime? oldestDate = date.OrderBy(x => x.Date).FirstOrDefault().Date;
-            return oldestDate ?? DateTime.Now.AddYears(-1);
+            if(date.Count()>0)
+            {
+                DateTime? oldestDate = date.OrderBy(x => x.Date).FirstOrDefault().Date;
+                return oldestDate ?? DateTime.Now.AddYears(-1);
+            }
+            return DateTime.Now;
+
         }
 
         public static List<Model.Months> GetMonthsList(IEnumerable<MyBudgetAPI.Interfaces.IDate> _date)
